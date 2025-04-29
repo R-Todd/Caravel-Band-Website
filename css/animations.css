@@ -1,0 +1,17 @@
+/* ---------------------------------------------------
+   🎞️ animations.css - Album-specific animations
+   This file defines keyframe animations used on album pages.
+--------------------------------------------------- */
+
+/* 🔄 Spinning Vinyl Animation
+   - Used on the .vinyl-record image inside album cards
+   - Activated on hover via class in albums.css
+*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);   /* Start at 0 degrees */
+  }
+  to {
+    transform: rotate(360deg); /* Full circle spin */
+  }
+}

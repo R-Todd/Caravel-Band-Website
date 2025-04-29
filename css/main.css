@@ -1,0 +1,33 @@
+/* Reset layout spacing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* Shared layout styles */
+main {
+  padding: 0;
+}
+
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+a {
+  color: #66b2ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #88ccff;
+}

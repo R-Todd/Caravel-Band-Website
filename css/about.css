@@ -1,0 +1,39 @@
+/* about.css - Styles specific to about.html */
+
+.about {
+  padding: 2em;
+  max-width: 800px;
+  margin: auto;
+}
+
+.band-photo {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.band-photo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.caption {
+  font-size: 0.9em;
+}
+
+.band-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.member {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.member img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}

@@ -1,0 +1,46 @@
+/* header.css - Header and nav layout */
+
+header {
+  background-color: #111;
+  width: 100vw;
+}
+
+.nav-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
+
+.nav-list li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #ddd;
+}
+
+.logo img {
+  max-height: 50px;
+  width: auto;
+  display: block;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Albums | Caravel</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/albums.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- 🔝 Header Section -->
+  <div id="header"></div>
+
+  <main>
+
+    <!-- 🎵 Albums Intro Section -->
+    <section class="albums-intro">
+      <h1>Discography</h1>
+      <p>Hover over the album to reveal details and stream via Spotify.</p>
+    </section>
+
+    <!-- 💿 Album Grid Container -->
+    <section class="album-grid">
+
+      <!-- 📀 Album Card -->
+      <div class="album-container container-background">
+
+        <!-- 🖼️ Album Cover -->
+        <div class="album-image">
+          <img class="album-cover" src="images/world_on_fire.jpeg" alt="World on Fire Album Cover" />
+        </div>
+
+        <!-- 📝 Album Info -->
+        <div class="album-info">
+          <div class="album-title">World on Fire</div>
+          <div class="album-date">Released: Aug 4, 2023</div>
+        </div>
+
+        <!-- 🧾 Album Details -->
+        <div class="container-details">
+          <div class="vinyl-record">
+            <img src="images/vinyl.png" alt="Vinyl Record" />
+          </div>
+          <div class="album-description">
+            A high-energy debut filled with cinematic guitar work and rich vocal textures.
+          </div>
+          <iframe class="spotify-frame"
+                  src="https://open.spotify.com/embed/album/06ahptTI1znggmuxhcMUgj?utm_source=generator"
+                  frameborder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy">
+          </iframe>
+        </div>
+
+      </div> <!-- End .album-container -->
+
+    </section> <!-- End .album-grid -->
+
+  </main>
+
+  <!-- 🔚 Footer Section -->
+  <div id="footer"></div>
+
+  <!-- 🔽 Include header/footer script -->
+  <script src="js/include.js"></script>
+</body>
+</html>

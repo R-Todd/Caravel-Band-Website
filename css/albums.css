@@ -1,0 +1,165 @@
+/* 🎵 Albums Intro Section */
+.albums-intro {
+  text-align: center;
+  padding: 2em 1em;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* 💿 Album Grid Layout */
+.album-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  padding: 2em 1em;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 📀 Album Container */
+.album-container {
+  width: clamp(280px, 40vw, 500px);   /* Scales with screen width */
+  height: clamp(350px, 55vh, 600px);  /* Scales with screen height */
+  position: relative;
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* On hover: subtle scale-up */
+.album-container:hover {
+  transform: scale(1.05);
+}
+
+/* 🌄 Album Background */
+.container-background {
+  background-image: url('../images/world_on_fire_banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.album-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+/* 🖼️ Album Cover */
+.album-image {
+  position: relative;
+  z-index: 1;
+  float: left;
+}
+
+.album-cover {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #000;
+}
+
+/* 📝 Album Info */
+.album-info {
+  position: absolute;
+  top: 280px;
+  left: 2em;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.album-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.album-date {
+  font-size: 0.95em;
+  color: #ccc;
+  margin-top: 0.3em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* 🧾 Details Section (on hover) */
+.container-details {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.album-container:hover .container-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.album-container:hover .album-info {
+  transform: translateX(280px);
+  top: 2em;
+  left: auto;
+  right: 2em;
+  text-align: left;
+}
+
+/* 🔄 Vinyl Record */
+.vinyl-record {
+  width: 60px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.album-container:hover .vinyl-record {
+  opacity: 1;
+  animation: spin 2s linear infinite;
+}
+
+/* 📄 Description */
+.album-description {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #fff;
+  margin-top: 1em;
+}
+
+/* 🎧 Spotify Player */
+.spotify-frame {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 1em;
+}
+
+/* 📱 Responsive Fixes */
+@media (max-width: 600px) {
+  .album-container {
+    width: 90vw;
+    height: auto;
+  }
+
+  .album-container:hover {
+    transform: scale(1.02);
+  }
+
+  .album-info {
+    top: auto;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    transform: none;
+  }
+}
