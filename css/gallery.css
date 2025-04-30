@@ -1,22 +1,37 @@
-/* gallery.css - Styles specific to gallery.html */
+/* gallery.css - Responsive masonry-style photo grid using columns */
 
 .gallery-intro {
   text-align: center;
   padding: 2em 1em;
+  color: #f0f0f0;
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1em;
+  columns: 3 250px;         /* 3 columns, min 250px width */
+  column-gap: 1em;
   padding: 2em;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .gallery-grid img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  margin-bottom: 1em;
   border-radius: 8px;
+  display: block;
+  break-inside: avoid;      /* Prevent breaking inside columns */
+}
+
+/* Responsive: drop to 2 and then 1 column */
+@media (max-width: 768px) {
+  .gallery-grid {
+    columns: 2 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    columns: 1 100%;
+  }
 }

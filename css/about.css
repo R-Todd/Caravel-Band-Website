@@ -1,39 +1,82 @@
-/* about.css - Styles specific to about.html */
+/* about.css - Refined "About the Band" styling */
 
 .about {
-  padding: 2em;
-  max-width: 800px;
+  padding: 3em 1.5em;
+  max-width: 1000px;
   margin: auto;
+  text-align: center;
+}
+
+.section-title, .section-subtitle {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: #ffffff;
+  border-bottom: 2px solid #444;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+.band-description {
+  color: #ccc;
+  font-size: 1.1em;
+  margin-bottom: 2.5em;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .band-photo {
   margin: 2em 0;
-  text-align: center;
 }
 
 .band-photo img {
-  max-width: 100%;
-  height: auto;
-}
-
-.caption {
-  font-size: 0.9em;
-}
-
-.band-members {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  justify-content: space-between;
-}
-
-.member {
-  flex: 1 1 45%;
-  text-align: center;
-}
-
-.member img {
   width: 100%;
-  max-width: 200px;
-  height: auto;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* 🔥 Member grid layout */
+.band-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.member-card {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
+.member-image img {
+  width: 100%;
+  max-width: 160px;
+  border-radius: 50%;
+  border: 2px solid #444;
+  margin-bottom: 1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.member-info h3 {
+  font-size: 1.2em;
+  color: #fff;
+  margin: 0;
+}
+
+.member-role {
+  font-size: 1em;
+  color: #ccc;
+  margin-top: 0.3em;
 }

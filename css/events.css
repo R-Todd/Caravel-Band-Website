@@ -1,61 +1,77 @@
-/* ----------------------------------------
-   🎤 Event Card Layout
-   - Grid layout: flyer + details
----------------------------------------- */
-.event-card {
+/* Wrapper that centers the grid and adds padding */
+.events-wrapper {
+  padding: 2em;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Responsive grid layout: 1 column on mobile, 2+ on wide screens */
+.events-list {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* flyer | details */
-  gap: 1.5em;
-  align-items: center;
-  border: 1px solid #444;               /* darker border for contrast */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+}
+
+/* Each event card */
+.event-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
   border-radius: 8px;
   padding: 1.5em;
-  margin-bottom: 2em;
-  background-color: #1a1a1a;            /* dark background for theme */
-  color: #f0f0f0;                       /* light text for readability */
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  color: #f0f0f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ----------------------------------------
-   📷 Flyer Image
-   - Clean and responsive
----------------------------------------- */
+/* Optional: subtle hover effect for interactivity */
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Flyer image inside card */
 .event-flyer {
   width: 100%;
-  max-width: 100%;
   height: auto;
+  max-height: 260px; /* Limit image height */
   border-radius: 8px;
-  object-fit: contain;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1em;
 }
 
-/* ----------------------------------------
-   📝 Event Details
-   - Title, description, and meta info
----------------------------------------- */
+/* Event title */
 .event-details h3 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 0.5em;
-  color: #ffffff; /* bright white for high contrast */
+  color: #ffffff;
 }
 
+/* Event meta/info text */
 .event-details p {
-  margin: 0.4em 0;
-  line-height: 1.5;
-  color: #dddddd; /* slightly muted for body text */
+  margin: 0.3em 0;
+  line-height: 1.4;
+  color: #cccccc;
 }
 
-/* ----------------------------------------
-   📱 Responsive Layout
-   - Stack flyer and text on smaller screens
----------------------------------------- */
-@media (max-width: 768px) {
-  .event-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+/* Intro heading styles */
+.events-intro {
+  text-align: center;
+  margin-bottom: 2em;
+}
 
-  .event-flyer {
-    margin-bottom: 1em;
-  }
+.events-intro h1 {
+  font-size: 2em;
+  color: #ffffff;
+  margin-bottom: 0.3em;
+  border-bottom: 2px solid #444;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+.events-intro p {
+  color: #ccc;
+  font-size: 1.1em;
 }

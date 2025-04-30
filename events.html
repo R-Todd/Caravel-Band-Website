@@ -5,64 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Events | The Band Name</title>
 
-  <!-- Base and shared styles -->
+  <!-- Shared styles -->
   <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/events.css" />
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
+
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="css/events.css" />
 </head>
 <body>
 
   <!-- Header -->
   <div id="header"></div>
 
-  <!-- Main Content -->
   <main>
-    <section class="events-intro">
-      <h1>Upcoming Events</h1>
-      <p>Catch us live at one of these upcoming shows. More flyers are added as we confirm bookings!</p>
-    </section>
-
-    <section class="events-list">
-
-      <!-- 🔁 Event Card #1 -->
-      <div class="event-card">
-  
-        <div class="event-details">
-          <h3>Downtown Music Festival</h3>
-          <p class="event-description">
-            Join us for a high-energy night of rock, indie, and cinematic grooves as we headline the main stage.
-          </p>
-          <p><strong>Date:</strong> May 25, 2025</p>
-          <p><strong>Time:</strong> 8:00 PM</p>
-          <p><strong>Location:</strong> Civic Plaza, Phoenix, AZ</p>
-        </div>
-        <img src="images/flyer_template.png" alt="Flyer for Downtown Music Festival" class="event-flyer" />
+    <section class="events-wrapper">
+      <div class="events-intro">
+        <h1>Events</h1>
+        <p>Catch us live at one of these shows. New flyers will be posted as dates are confirmed.</p>
       </div>
 
-      <!-- 🔁 Event Card #2 -->
-      <div class="event-card">
-        <img src="images/flyer_template.png" alt="Flyer for Summer Bash" class="event-flyer" />
-        <div class="event-details">
-          <h3>Summer Bash 2025</h3>
-          <p class="event-description">
-            Celebrate the summer with us and 10+ bands under the stars. Food trucks, art vendors, and more!
-          </p>
-          <p><strong>Date:</strong> July 9, 2025</p>
-          <p><strong>Time:</strong> 7:30 PM</p>
-          <p><strong>Location:</strong> Red Rocks Amphitheatre, Morrison, CO</p>
+      <section class="events-list">
+        <!-- 🎤 Event 1 -->
+        <div class="event-card">
+          <img src="images/flyer_template.png" alt="Downtown Music Festival" class="event-flyer" />
+          <div class="event-details">
+            <h3>Downtown Music Festival</h3>
+            <p>High-energy night of rock, indie, and cinematic grooves.</p>
+            <p><strong>Date:</strong> May 25, 2025</p>
+            <p><strong>Time:</strong> 8:00 PM</p>
+            <p><strong>Location:</strong> Civic Plaza, Phoenix, AZ</p>
+          </div>
         </div>
-      </div>
 
-      <!-- You can add more event-card blocks below -->
+        <!-- 🎸 Event 2 -->
+        <div class="event-card">
+          <img src="images/flyer_template.png" alt="Summer Bash" class="event-flyer" />
+          <div class="event-details">
+            <h3>Summer Bash 2025</h3>
+            <p>Food trucks, 10+ bands, and art vendors under the stars.</p>
+            <p><strong>Date:</strong> July 9, 2025</p>
+            <p><strong>Time:</strong> 7:30 PM</p>
+            <p><strong>Location:</strong> Red Rocks Amphitheatre, CO</p>
+          </div>
+        </div>
 
+        <!-- 🎶 Event 3 -->
+        <div class="event-card">
+          <img src="images/flyer_template.png" alt="Fall Jam" class="event-flyer" />
+          <div class="event-details">
+            <h3>Fall Jam</h3>
+            <p>A cozy fall show with acoustic sets and warm vibes.</p>
+            <p><strong>Date:</strong> October 10, 2025</p>
+            <p><strong>Time:</strong> 6:00 PM</p>
+            <p><strong>Location:</strong> City Park, Flagstaff, AZ</p>
+          </div>
+        </div>
+
+        <!-- 🌃 Event 4 -->
+        <div class="event-card">
+          <img src="images/flyer_template.png" alt="New Year's Eve Show" class="event-flyer" />
+          <div class="event-details">
+            <h3>New Year's Eve Bash</h3>
+            <p>Ring in the new year with music, lights, and fireworks.</p>
+            <p><strong>Date:</strong> December 31, 2025</p>
+            <p><strong>Time:</strong> 11:00 PM</p>
+            <p><strong>Location:</strong> Downtown Square, Tucson, AZ</p>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
   <!-- Footer -->
   <div id="footer"></div>
 
-  <!-- Scripts -->
   <script src="js/include.js"></script>
 </body>
 </html>
