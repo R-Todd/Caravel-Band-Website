@@ -14,15 +14,23 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Shared layout styles */
-main {
-  padding: 0;
+/* ✅ Apply sticky footer layout only on pages using .flex-layout */
+.flex-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+.flex-layout main {
+  flex: 1;
+}
+
+/* Headings */
 h1, h2, h3 {
   color: #ffffff;
 }
 
+/* Link styles */
 a {
   color: #66b2ff;
   text-decoration: none;

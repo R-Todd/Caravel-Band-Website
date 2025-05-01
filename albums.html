@@ -13,30 +13,32 @@
   <!-- Page-specific Styles -->
   <link rel="stylesheet" href="css/albums.css" />
 </head>
-<body>
+<body class="flex-layout"> <!-- ✅ Sticky footer enabled -->
 
   <!-- Header -->
   <div id="header"></div>
 
-  <main class="albums-page">
-    <h1>Albums</h1>
+  <main>
+    <!-- ✅ Wrapped to isolate album layout from flex scaling -->
+    <div class="albums-page">
+      <h1>Albums</h1>
 
-    <!-- Album Card 1 -->
-    <section class="album" style="background-image: url('images/world_on_fire_banner.png');">
-      <div class="album-overlay">
-        <h2>World on Fire</h2>
-        <p class="release-date">Released: August 4, 2023</p>
-        <iframe
-          src="https://open.spotify.com/embed/album/06ahptTI1znggmuxhcMUgj?utm_source=generator"
-          frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </div>
-    </section>
+      <!-- Album Card 1 -->
+      <section class="album" style="background-image: url('images/world_on_fire_banner.png');">
+        <div class="album-overlay">
+          <h2>World on Fire</h2>
+          <p class="release-date">Released: August 4, 2023</p>
+          <iframe
+            src="https://open.spotify.com/embed/album/06ahptTI1znggmuxhcMUgj?utm_source=generator"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
 
-    <!-- Add more album sections as needed -->
-    
+      <!-- Add more album sections as needed -->
+    </div>
   </main>
 
   <!-- Footer -->
