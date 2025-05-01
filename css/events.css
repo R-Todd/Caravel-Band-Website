@@ -1,70 +1,22 @@
-/* Wrapper that centers the grid and adds padding */
+/* -----------------------------------------
+   📅 Events Page — Pinterest-style layout
+------------------------------------------ */
+
 .events-wrapper {
-  padding: 2em;
-  max-width: 1000px;
+  padding: 2em 1em;
+  max-width: 1200px;
   margin: auto;
 }
 
-/* Responsive grid layout: 1 column on mobile, 2+ on wide screens */
-.events-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2em;
-}
-
-/* Each event card */
-.event-card {
-  display: flex;
-  flex-direction: column;
-  background-color: #1a1a1a;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 1.5em;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-  color: #f0f0f0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Optional: subtle hover effect for interactivity */
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-}
-
-/* Flyer image inside card */
-.event-flyer {
-  width: 100%;
-  height: auto;
-  max-height: 260px; /* Limit image height */
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1em;
-}
-
-/* Event title */
-.event-details h3 {
-  font-size: 1.3em;
-  margin-bottom: 0.5em;
-  color: #ffffff;
-}
-
-/* Event meta/info text */
-.event-details p {
-  margin: 0.3em 0;
-  line-height: 1.4;
-  color: #cccccc;
-}
-
-/* Intro heading styles */
+/* Section intro */
 .events-intro {
   text-align: center;
   margin-bottom: 2em;
+  color: #f0f0f0;
 }
 
 .events-intro h1 {
   font-size: 2em;
-  color: #ffffff;
   margin-bottom: 0.3em;
   border-bottom: 2px solid #444;
   display: inline-block;
@@ -72,6 +24,78 @@
 }
 
 .events-intro p {
-  color: #ccc;
   font-size: 1.1em;
+  color: #ccc;
+}
+
+/* -------------------------------------
+   Masonry-style grid using columns
+-------------------------------------- */
+.events-list {
+  columns: 3 250px;        /* 3 columns with a min width */
+  column-gap: 1em;
+  padding: 0 1em;
+}
+
+/* Event card masonry items */
+.event-card {
+  break-inside: avoid;
+  margin-bottom: 1.5em;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+
+
+/* Full-size flyer image */
+.event-flyer {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+/* Event details tag */
+.event-details {
+  background-color: #111;
+  padding: 1em;
+  text-align: left;
+}
+
+.event-details h3 {
+  font-size: 1.2em;
+  margin: 0 0 0.5em;
+  color: #ffffff;
+}
+
+.event-details p {
+  font-size: 0.95em;
+  color: #ccc;
+  margin: 0.2em 0;
+  line-height: 1.4;
+}
+
+/* -------------------------------------
+   Responsive: Drop to 2 and 1 columns
+-------------------------------------- */
+@media (max-width: 768px) {
+  .events-list {
+    columns: 2 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-list {
+    columns: 1 100%;
+  }
+
+  .event-details h3 {
+    font-size: 1.05em;
+  }
+
+  .event-details p {
+    font-size: 0.9em;
+  }
 }

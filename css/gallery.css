@@ -35,3 +35,10 @@
     columns: 1 100%;
   }
 }
+
+@media (max-width: 480px) {
+  .gallery-grid img {
+    margin-bottom: 1.5em;
+  }
+}
+

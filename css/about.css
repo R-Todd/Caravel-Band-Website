@@ -1,4 +1,4 @@
-/* about.css - Refined "About the Band" styling */
+/* about.css - Staggered band layout with emphasized roles */
 
 .about {
   padding: 3em 1.5em;
@@ -33,50 +33,102 @@
   width: 100%;
   max-width: 800px;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* 🔥 Member grid layout */
-.band-members {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* ----------------------------------
+   Band Member Grid (Staggered Style)
+---------------------------------- */
+.band-members-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2em;
   margin-top: 2em;
 }
 
-.member-card {
-  background: linear-gradient(145deg, #1a1a1a, #222);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.03);
+.member-card-horizontal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em;
-  transition: transform 0.3s ease;
+  text-align: center;
+  max-width: 180px;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
-.member-card:hover {
-  transform: translateY(-5px);
+/* Stagger alternating rows for visual rhythm */
+.member-card-horizontal:nth-child(odd) {
+  margin-top: 2em;
 }
 
+.member-card-horizontal:nth-child(even) {
+  margin-top: 0;
+}
+
+/* Base image styling */
 .member-image img {
   width: 100%;
-  max-width: 160px;
+  max-width: 140px;
   border-radius: 50%;
-  border: 2px solid #444;
-  margin-bottom: 1em;
+  border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.8em;
 }
 
-.member-info h3 {
-  font-size: 1.2em;
+/* Emphasized roles */
+.lead-guitar .member-image img,
+.drummer .member-image img {
+  max-width: 180px;
+}
+
+.lead-guitar .member-name,
+.drummer .member-name {
+  font-weight: bold;
+}
+
+.member-name {
+  font-size: 1em;
   color: #fff;
   margin: 0;
 }
 
 .member-role {
-  font-size: 1em;
+  font-size: 0.9em;
   color: #ccc;
-  margin-top: 0.3em;
+}
+
+/* ----------------------------------
+   Mobile-Responsive Stacking
+---------------------------------- */
+@media (max-width: 600px) {
+  .band-members-horizontal {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .member-card-horizontal {
+    max-width: 90%;
+  }
+
+  .member-card-horizontal:nth-child(odd),
+  .member-card-horizontal:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .member-image img {
+    max-width: 140px !important; /* override large scale on mobile */
+  }
+
+  .section-title,
+  .section-subtitle {
+    font-size: 1.5em;
+  }
+
+  .band-description {
+    font-size: 1em;
+    padding: 0 1em;
+  }
 }

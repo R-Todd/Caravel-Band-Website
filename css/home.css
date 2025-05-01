@@ -5,8 +5,8 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 0 2rem; /* "a few inches" of side padding */
-  background-color: #000; /* optional fallback */
+  padding: 0 2rem;
+  background-color: #000;
   justify-content: center;
 }
 
@@ -15,19 +15,19 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2); /* Adjust darkness here */
+  background: rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 /* Fullscreen video background */
 .hero-video {
   position: relative;
-  width: 80%;        /* or try 70% / 60% for more side space */
-  max-width: 960px;  /* limits on large screens */
+  width: 80%;
+  max-width: 960px;
   height: auto;
   z-index: 0;
-  border-radius: 8px;          /* optional */
-  box-shadow: 0 0 20px #000;   /* optional for contrast */
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
 }
 
 /* Toggle button styling */
@@ -35,7 +35,7 @@
   position: absolute;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 2; /* Above overlay */
+  z-index: 2;
   padding: 0.6em 1.2em;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -48,4 +48,29 @@
 
 #toggleVideoBtn:hover {
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* -------------------------------------------
+   📱 Responsive Layout for Small Screens
+-------------------------------------------- */
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .hero-video {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  #toggleVideoBtn {
+    position: static;
+    margin-top: 1rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
 }

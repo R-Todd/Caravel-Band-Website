@@ -57,3 +57,21 @@ button {
 button:hover {
   background-color: #333;
 }
+
+@media (max-width: 600px) {
+  .contact-wrapper {
+    padding: 1em;
+  }
+
+  .contact-section h1 {
+    font-size: 1.5em;
+  }
+
+  .contact-section p {
+    font-size: 1em;
+  }
+
+  input, textarea, button {
+    font-size: 1em;
+  }
+}

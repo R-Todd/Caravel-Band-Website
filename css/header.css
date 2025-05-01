@@ -20,6 +20,7 @@ header {
   margin: 0;
   flex-wrap: wrap;
   gap: 1.5em;
+  flex-direction: row;
 }
 
 .nav-list li {
@@ -43,4 +44,18 @@ header {
   max-height: 50px;
   width: auto;
   display: block;
+  margin: 0 auto;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .logo img {
+    max-width: 120px;
+  }
 }

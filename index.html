@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Caravel</title>
+  
+  <!-- Base styles and resets first -->
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Shared components -->
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <main>
+    <section class="hero">
+      <!-- Background video -->
+      <video autoplay muted loop playsinline class="hero-video" id="bgVideo">
+        <source src="videos/home_intro.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Toggle button -->
+      <button id="toggleVideoBtn">Hide Video</button>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/include.js"></script>
+  <script src="js/toggleVideo.js"></script>
+
+</body>
+</html>
+
