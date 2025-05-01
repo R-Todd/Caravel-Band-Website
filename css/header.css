@@ -9,8 +9,18 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.logo img {
+  max-height: 50px;
+  width: auto;
+  display: block;
+}
+
+/* Default nav list for desktop */
 .nav-list {
   display: flex;
   justify-content: center;
@@ -18,9 +28,7 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
   gap: 1.5em;
-  flex-direction: row;
 }
 
 .nav-list li {
@@ -40,22 +48,37 @@ header {
   color: #ddd;
 }
 
-.logo img {
-  max-height: 50px;
-  width: auto;
-  display: block;
-  margin: 0 auto;
+/* Mobile hamburger menu (initially hidden) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
 }
 
-/* Responsive layout */
+/* Responsive layout for screens 600px and below */
 @media (max-width: 600px) {
-  .nav-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
+  .logo img {
+    max-height: 30px;
   }
 
-  .logo img {
-    max-width: 120px;
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 1em 0;
+    z-index: 1000;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 }

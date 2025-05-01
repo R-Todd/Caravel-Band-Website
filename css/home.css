@@ -2,12 +2,17 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
-  background-color: #000;
   justify-content: center;
+  flex-direction: column;
+  background-image: url(../images/home_background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1rem;
 }
 
 .hero::before {
@@ -22,11 +27,11 @@
   position: relative;
   width: 80%;
   max-width: 960px;
-  z-index: 0;
   border-radius: 8px;
   box-shadow: 0 0 20px #000;
   overflow: hidden;
   aspect-ratio: 16 / 9;
+  z-index: 0;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -50,21 +55,20 @@
   visibility: hidden;
 }
 
-/* Centered video + audio control buttons */
+/* Button container under video */
 .video-controls {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 1rem;
   display: flex;
+  justify-content: center;
   gap: 1rem;
   z-index: 2;
+  flex-wrap: wrap;
 }
 
-/* 🔴 Red-styled buttons */
+/* Button styles */
 .video-controls button {
   padding: 0.6em 1.2em;
-  background-color: #e63946; /* Caravel red */
+  background-color: #99000de1; /* Caravel red */
   color: white;
   border: none;
   border-radius: 4px;
@@ -74,13 +78,12 @@
 }
 
 .video-controls button:hover {
-  background-color: #c82333; /* Slightly darker on hover */
+  background-color: #c82333;
 }
 
 /* 📱 Mobile Layout */
 @media (max-width: 600px) {
   .hero {
-    flex-direction: column;
     padding: 1rem;
     height: auto;
   }
@@ -93,19 +96,14 @@
 
   .video-controls {
     flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 300px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 1rem;
   }
 
   .video-controls button {
     width: 100%;
-    margin-top: 0.5rem;
     font-size: 1rem;
-  }
-
-  .video-controls button:first-child {
-    margin-top: 0;
   }
 }
