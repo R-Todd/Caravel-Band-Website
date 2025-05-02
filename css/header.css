@@ -63,7 +63,7 @@ header {
   .nav-bar {
     flex-direction: column;
     align-items: stretch;
-    padding: 1em; /* ✅ Reduced for balance */
+    padding: 1em;
     gap: 1em;
   }
 
@@ -72,10 +72,17 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding: 0 1em;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
   }
 
   .logo img {
     max-height: 70px;
+    display: block;
   }
 
   .menu-toggle {
@@ -117,4 +124,5 @@ header {
     background-color: #222;
   }
 }
+
 
