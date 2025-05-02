@@ -54,31 +54,67 @@ header {
   font-size: 2rem;
   color: white;
   cursor: pointer;
+  padding-right: 1rem;
 }
 
 /* Responsive layout for screens 600px and below */
+/* Mobile improvements */
 @media (max-width: 600px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1em; /* ✅ Reduced for balance */
+    gap: 1em;
+  }
+
+  .logo-and-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
   .logo img {
-    max-height: 30px;
+    max-height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: #db0016;
+    cursor: pointer;
   }
 
   .nav-list {
     display: none;
     flex-direction: column;
-    background-color: #111;
-    position: absolute;
-    top: 70px;
-    right: 0;
     width: 100%;
-    padding: 1em 0;
-    z-index: 1000;
+    background-color: #111;
+    text-align: center;
+    padding: 0.5em 1em;
+    gap: 0.5em;
+    border-top: 1px solid #333;
   }
 
   .nav-list.active {
     display: flex;
   }
 
-  .menu-toggle {
+  .nav-list li {
+    width: 100%;
+  }
+
+  .nav-list a {
+    padding: 1em;
+    font-size: 1.1rem;
     display: block;
+    width: 100%;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .nav-list a:hover {
+    background-color: #222;
   }
 }
+
