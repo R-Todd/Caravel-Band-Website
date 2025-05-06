@@ -32,7 +32,7 @@
    Masonry-style grid using columns
 -------------------------------------- */
 .events-list {
-  columns: 3 250px;        /* 3 columns with a min width */
+  columns: 3 250px;
   column-gap: 1em;
   padding: 0 1em;
 }
@@ -82,8 +82,6 @@
   border: 1px solid #555;
   padding: 0.6em 1.2em;
   border-radius: 5px;
-  margin: 1em auto;
-  display: block;
   cursor: pointer;
   font-size: 0.95em;
 }
@@ -99,6 +97,7 @@
   margin-bottom: 1em;
   background-color: #111;
   overflow: hidden;
+  align-self: start;
 }
 
 /* Collapsed thumbnail view */
@@ -159,8 +158,7 @@
   text-align: center;
 }
 
-/* ——— MISSING DETAILS SECTION RULES ——— */
-/* Without these, .hidden does nothing and details never collapse! */
+/* ——— DETAILS SECTION RULES ——— */
 .past-event-details {
   padding: 1em;
   display: block;
@@ -171,27 +169,81 @@
 .past-event-details.hidden {
   display: none;
 }
-/* ———————————————————————————————— */
+/* ——————————————————————— */
+
+/* -------------------------------------
+   🆕 Grid for Past Events Only
+-------------------------------------- */
+#pastEventsContainer.events-list {
+  columns: initial;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  padding: 0;
+  align-items: start;
+}
+
+/* -------------------------------------
+   🆕 Center the "Show All Past Events" Button
+-------------------------------------- */
+#pastEventsContainer .toggle-button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin: 1.5em 0;
+}
 
 /* -------------------------------------
    Responsive: Drop to 2 and 1 columns
 -------------------------------------- */
-@media (max-width: 768px) {
-  .events-list {
-    columns: 2 200px;
-  }
-}
-
 @media (max-width: 480px) {
+  /* Upcoming drops to a single column */
   .events-list {
     columns: 1 100%;
   }
 
-  .event-details h3 {
-    font-size: 1.05em;
+  /* Past grid: one column */
+  #pastEventsContainer.events-list {
+    grid-template-columns: 1fr;
   }
 
-  .event-details p {
-    font-size: 0.9em;
+  /* === INLINE BADGE LAYOUT === */
+  .thumb-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .calendar-icon {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0.75em;
+    min-width: auto;
+  }
+
+  .calendar-day {
+    font-size: 1.4em;
+  }
+
+  .calendar-month {
+    display: inline-block;
+    margin-left: 0.25em;
+    font-size: 0.85em;
+  }
+
+  .thumb-title-wrapper {
+    flex: 1;
+  }
+
+  .toggle-icon {
+    margin-left: auto;
+  }
+
+  /* tighter padding on mobile */
+  .past-event-thumb {
+    padding: 0.75em;
+  }
+
+  .past-event-details {
+    padding: 0.75em;
   }
 }
