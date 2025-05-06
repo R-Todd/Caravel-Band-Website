@@ -47,8 +47,6 @@
   overflow: hidden;
 }
 
-
-
 /* Full-size flyer image */
 .event-flyer {
   width: 100%;
@@ -76,6 +74,104 @@
   margin: 0.2em 0;
   line-height: 1.4;
 }
+
+/* Toggle button styling */
+.toggle-button {
+  background-color: #222;
+  color: #ddd;
+  border: 1px solid #555;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  margin: 1em auto;
+  display: block;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.toggle-button:hover {
+  background-color: #333;
+}
+
+/* Wrapper for each past event thumbnail */
+.past-event-thumb-wrapper {
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin-bottom: 1em;
+  background-color: #111;
+  overflow: hidden;
+}
+
+/* Collapsed thumbnail view */
+.past-event-thumb {
+  cursor: pointer;
+  padding: 1em;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.past-event-thumb:hover {
+  background-color: #222;
+}
+
+/* Header flex: calendar, title, toggle */
+.thumb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.calendar-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3em;
+  margin-right: 1em;
+}
+
+.calendar-day {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  line-height: 1;
+}
+
+.calendar-month {
+  font-size: 0.75em;
+  color: #aaa;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.thumb-title-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-icon {
+  font-size: 1.5em;
+  color: #ccc;
+  font-weight: bold;
+  min-width: 1.5em;
+  text-align: center;
+}
+
+/* ——— MISSING DETAILS SECTION RULES ——— */
+/* Without these, .hidden does nothing and details never collapse! */
+.past-event-details {
+  padding: 1em;
+  display: block;
+  background-color: #111;
+  border-top: 1px solid #333;
+}
+
+.past-event-details.hidden {
+  display: none;
+}
+/* ———————————————————————————————— */
 
 /* -------------------------------------
    Responsive: Drop to 2 and 1 columns
