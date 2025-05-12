@@ -1,109 +1,255 @@
+/* home.css */
+
+/* ==========================================================================
+   HERO (full-screen video background + controls)
+   ========================================================================== */
 .hero {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
+  width: 100vw; height: 100vh; min-height: 100vh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url(../images/home_background.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: url(../images/home_background.jpg) center/cover no-repeat;
   padding: 1rem;
 }
-
 .hero::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.2);
   z-index: 1;
 }
-
 .youtube-video-wrapper {
   position: relative;
-  width: 80%;
-  max-width: 960px;
-  border-radius: 8px;
+  width: 80%; max-width: 960px;
+  aspect-ratio: 16/9;
+  border-radius: 8px; overflow: hidden;
   box-shadow: 0 0 20px #000;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
   z-index: 0;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity .5s ease, visibility .5s ease;
 }
-
 .youtube-video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-  pointer-events: none;
-  object-fit: cover;
+  width: 100%; height: 100%;
+  border: none; display: block;
+  pointer-events: none; object-fit: cover;
 }
-
-/* Fade transitions */
-.fade-in {
-  opacity: 1;
-  visibility: visible;
-}
-
-.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* Button container under video */
+.fade-in { opacity: 1; visibility: visible; }
+.fade-out { opacity: 0; visibility: hidden; }
 .video-controls {
   margin-top: 1rem;
-  display: flex;
+  display: flex; gap: 1rem;
   justify-content: center;
-  gap: 1rem;
-  z-index: 2;
-  flex-wrap: wrap;
+  z-index: 2; flex-wrap: wrap;
 }
-
-/* Button styles */
 .video-controls button {
-  padding: 0.6em 1.2em;
-  background-color: #99000de1; /* Caravel red */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s ease;
+  padding: .6em 1.2em;
+  background: #99000de1; color: #fff;
+  border: none; border-radius: 4px;
+  cursor: pointer; font-size: .95rem;
+  transition: background .3s ease;
 }
-
 .video-controls button:hover {
-  background-color: #c82333;
+  background: #c82333;
 }
-
-/* 📱 Mobile Layout */
-@media (max-width: 600px) {
-  .hero {
-    padding: 1rem;
-    height: auto;
-  }
-
-  .youtube-video-wrapper {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-  }
-
+@media (max-width:600px) {
+  .hero { height: auto; }
+  .youtube-video-wrapper { width:100%; max-width:100%; border-radius:0; }
   .video-controls {
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 300px;
-    margin-top: 1rem;
+    width: 100%; max-width: 300px;
   }
+  .video-controls button { width:100%; font-size:1rem; }
+}
 
-  .video-controls button {
-    width: 100%;
-    font-size: 1rem;
+/* ==========================================================================
+   FEATURED ALBUM PREVIEW (brick background + “Caravel Presents”)
+   ========================================================================== */
+.album-preview-section {
+  background: #111 url('../images/brick_background.png') center/cover no-repeat;
+  text-align: center;
+  padding: 4em 1.5em;
+  position: relative;
+}
+.album-preview-header {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: 1em; margin-bottom: 2em;
+}
+.album-preview-header img.album-logo {
+  max-width: 250px; height: auto;
+}
+.album-preview-header .presents-text {
+  color: #fff;
+  font-size: 2.5em;
+  margin: 0;
+}
+@media (max-width:600px) {
+  .album-preview-header { flex-direction: column; }
+  .album-preview-header .presents-text { font-size: 2em; }
+}
+.album-preview-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+}
+.album-preview-cover {
+  width: 300px; max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  margin-bottom: 1em;
+}
+.album-preview-title {
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+}
+.album-preview-title span {
+  color: #ff6f00;
+}
+
+/* ==========================================================================  
+   🎧 TWO-COLUMN LAYOUT & EMBEDS — Enhanced Styling with Staggered YouTube
+   ========================================================================== */
+.two-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* 📦 Album-side columns */
+.album-column {
+  flex: 1 1 300px;
+  max-width: 500px;
+  text-align: center;
+  padding: 1em;
+}
+
+/* 🎧 Spotify player */
+.spotify-embed {
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  margin-top: 1em;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔗 Container for platform buttons */
+.platform-links.under-cover {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 2em;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* 🟣 Apple Music — smaller, top-aligned */
+.platform-links .platform-btn.apple-btn {
+  background: linear-gradient(135deg, #c49eac, #ad24cf);
+  padding: 0.8em 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: flex-start;
+}
+
+/* 🔴 YouTube — larger + vertically offset halfway below Apple Music */
+.platform-links .platform-btn.yt-btn {
+  background: linear-gradient(135deg, #c20808, #e71a1aea, #c20808);
+  width: 100px;
+  padding: 1.2em;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(50%); /* 🔽 Shift downward by 50% of its own height */
+}
+
+
+/* 🖼️ Logo sizing */
+.platform-links .platform-btn img {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* ✨ Hover animation */
+.platform-links .platform-btn:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 📱 Responsive: reset alignment on small screens */
+@media (max-width: 600px) {
+  .platform-links.under-cover {
+    flex-direction: column;
+    align-items: center;
   }
+  .platform-links .platform-btn {
+    align-self: center !important;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   INSTAGRAM PROFILE CARD
+   ========================================================================== */
+.instagram-profile-card {
+  background: #111;
+  padding: 3em 1em;
+  text-align: center;
+}
+.profile-link {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  max-width: 550px; margin: auto;
+  padding: 1.5em;
+  background: #1a1a1a;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  text-decoration: none;
+  gap: 1.5em;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+.profile-link:hover {
+  background: #222;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+.profile-avatar {
+  width: 175px; height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+.profile-info {
+  flex-grow: 1;
+  text-align: left;
+}
+.username {
+  font-size: 1.5em;
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+}
+.name {
+  font-size: 1em;
+  color: #ccc;
+  margin: .1em 0;
+}
+.stats {
+  font-size: .9em;
+  color: #aaa;
+  margin: .2em 0 0;
+}
+.profile-logo {
+  width: 100px; height: 100px;
+  opacity: .95;
 }
