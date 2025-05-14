@@ -14,30 +14,37 @@
 </head>
 <body class="flex-layout">
 
-  <!-- 🔼 Header (Dynamically injected via include.js) -->
+  <!-- 🔼 Header -->
   <div id="header"></div>
 
   <main>
-
     <!-- 🎵 FEATURED ALBUM SECTION -->
     <section class="album-preview-section">
-      <!-- Caravel Presents header -->
+      <!-- 1. Caravel logo + “Presents” on same line -->
       <div class="album-preview-header">
-        <img src="images/caravel.png" alt="Caravel" class="album-logo" />
+        <img src="images/caravel.png" alt="Caravel Logo" class="album-logo" />
         <h3 class="presents-text">Presents</h3>
       </div>
 
-      <div class="album-preview-wrapper two-column-layout">
+      <!-- 2. World on Fire logo centered on its own line -->
+      <div class="album-title-logo">
+        <img
+          src="images/world_on_fire_home_logo.png"
+          alt="World on Fire Logo"
+          class="world-on-fire-logo"
+        />
+      </div>
 
-        <!-- Album Artwork Column -->
+      <!-- 3. Two-column row: Album cover on left, vertical Spotify embed on right -->
+      <div class="album-preview-wrapper two-column-layout">
+        <!-- — Album Cover Column — -->
         <div class="album-column">
           <img
             src="images/world_on_fire.jpeg"
             alt="World on Fire Album Cover"
             class="album-preview-cover"
           />
-
-          <!-- Moved platform links here, under the cover -->
+          <!-- 4. Platform links below cover -->
           <div class="platform-links under-cover">
             <a
               href="https://music.apple.com/us/artist/caravel/1797636037"
@@ -47,7 +54,7 @@
               <img src="images/apple_music.png" alt="Apple Music" />
             </a>
             <a
-              href="https://youtube.com/@caravel-band?si=nYojhMHHXL3HzmTc"
+              href="https://youtube.com/playlist?list=OLAK5uy_lUT-eSlTkmW0ys8Z3miiKlQdA9SdVqHug&si=Rai4MUZT5PX-e5Hg"
               class="platform-btn yt-btn"
               target="_blank"
             >
@@ -56,75 +63,75 @@
           </div>
         </div>
 
-        <!-- Album Info Column -->
+        <!-- — Spotify Embed Column (tall vertical) — -->
         <div class="album-column">
-          <h2 class="album-preview-title">
-            New Album: <span>World on Fire</span>
-          </h2>
-
-          <!-- 🎧 Spotify Embed -->
-          <iframe
-            class="spotify-embed"
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/2bFMkITvcjje1LJaqzA5Td?utm_source=generator&theme=0"
-            width="100%"
-            height="352"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+          <iframe style="border-radius:12px" 
+          src="https://open.spotify.com/embed/album/06ahptTI1znggmuxhcMUgj?utm_source=generator" 
+          width="100%" height="400" frameBorder="0" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"></iframe>
         </div>
-
       </div>
     </section>
 
-    <!-- 📸 INSTAGRAM PROFILE CARD -->
+    <!-- 📸 Instagram -->
     <section class="instagram-profile-card">
       <a href="https://www.instagram.com/caravel.band/" target="_blank" class="profile-link">
-        <!-- Avatar -->
         <img src="images/instagram_profile.jpg" alt="Caravel Avatar" class="profile-avatar" />
-
-        <!-- Profile Text Info -->
         <div class="profile-info">
           <p class="username">caravel.band</p>
           <p class="name">Caravel</p>
           <p class="stats">569 followers • 27 posts</p>
         </div>
-
-        <!-- Instagram Logo -->
         <img src="images/instagram.png" alt="Instagram Logo" class="profile-logo" />
       </a>
     </section>
 
-    <!-- 🎬 HERO SECTION (YouTube Background Video) -->
+    <!-- 🎬 Hero Section (first video only, fullscreen) -->
     <section class="hero">
-      <div class="youtube-video-wrapper fade-in">
+      <div id="videoWrapper1" class="youtube-video-wrapper fade-in">
         <iframe
-          id="ytplayer"
+          id="ytplayer1"
           src="https://www.youtube.com/embed/i2teMjtOcWU?autoplay=1&mute=1&loop=1&playlist=i2teMjtOcWU&controls=0&modestbranding=1&enablejsapi=1"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen
-          title="Caravel Background Video"
+          title="Primary Background Video"
         ></iframe>
       </div>
-
-      <!-- 🎛️ Video Controls -->
       <div class="video-controls">
-        <button id="toggleVideoBtn">Hide Video</button>
-        <button id="audioToggleBtn">Unmute</button>
+        <button class="toggle-video-btn" data-wrapper="videoWrapper1">Hide Video</button>
+        <button class="audio-toggle-btn" data-player="ytplayer1">Unmute</button>
       </div>
     </section>
 
-    <!-- 📅 NEXT EVENT CONTAINER (JS injects from eventsData.js + nextEvent.js) -->
-    <section id="nextEventContainer" class="next-event-container"></section>
+    <!-- 🎬 Second video (new) -->
+    <section class="hero-secondary">
+      <div id="videoWrapper2" class="youtube-video-wrapper fade-in">
+        <iframe
+          id="ytplayer2"
+          src="https://www.youtube.com/embed/Y5ceUG-Au_E?si=XsO-1OmAlUS8rPUB&loop=1&playlist=Y5ceUG-Au_E&controls=0&modestbranding=1&enablejsapi=1"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="Secondary Background Video"
+        ></iframe>
+      </div>
+      <div class="video-controls">
+        <button class="toggle-video-btn" data-wrapper="videoWrapper2">Hide Video</button>
+        <button class="audio-toggle-btn" data-player="ytplayer2">Unmute</button>
+      </div>
+    </section>
 
+    <!-- 📅 Next Event -->
+    <section id="nextEventContainer" class="next-event-container"></section>
   </main>
 
-  <!-- 🔽 Footer (Dynamically injected) -->
+  <!-- 🔽 Footer -->
   <div id="footer"></div>
 
-  <!-- 📜 JavaScript Files (Order matters) -->
+  <!-- 📜 Scripts -->
   <script src="js/include.js"></script>
   <script src="js/eventsData.js"></script>
   <script src="js/nextEvent.js"></script>

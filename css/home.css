@@ -61,6 +61,36 @@
   .video-controls button { width:100%; font-size:1rem; }
 }
 
+/* --------------------------------------------------------------------------
+   SECONDARY VIDEO SECTION (below hero) — auto height, visible overflow
+-------------------------------------------------------------------------- */
+.hero-secondary {
+  width: 100vw;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: #000;
+}
+
+.hero-secondary .youtube-video-wrapper {
+  width: 80%; max-width: 960px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  box-shadow: 0 0 20px #000;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .hero-secondary .youtube-video-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+
+
 /* ==========================================================================
    FEATURED ALBUM PREVIEW (brick background + “Caravel Presents”)
    ========================================================================== */
@@ -108,8 +138,9 @@
   color: #ff6f00;
 }
 
+
 /* ==========================================================================  
-   🎧 TWO-COLUMN LAYOUT & EMBEDS — Enhanced Styling with Staggered YouTube
+   🎧 TWO-COLUMN LAYOUT & EMBEDS — Centered + Equal Buttons Below Album
    ========================================================================== */
 .two-column-layout {
   display: flex;
@@ -119,12 +150,12 @@
   justify-content: center;
 }
 
-/* 📦 Album-side columns */
+/* 📦 Each column contains album art or embed */
 .album-column {
   flex: 1 1 300px;
   max-width: 500px;
   text-align: center;
-  padding: 1em;
+  padding: .51em;
 }
 
 /* 🎧 Spotify player */
@@ -137,64 +168,59 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
-/* 🔗 Container for platform buttons */
+/* 🔗 Platform buttons container */
 .platform-links.under-cover {
   display: flex;
   justify-content: center;
-  gap: 1em;
-  margin-top: 2em;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 1.5em;
   flex-wrap: wrap;
-  align-items: flex-start;
 }
 
-/* 🟣 Apple Music — smaller, top-aligned */
+/* 🎵 Apple Music button */
 .platform-links .platform-btn.apple-btn {
-  background: linear-gradient(135deg, #c49eac, #ad24cf);
-  padding: 0.8em 1.5em;
+  background: linear-gradient(135deg, #f08ab1, #be19e7);
+  padding: 0.6em 1.2em;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  align-self: flex-start;
 }
 
-/* 🔴 YouTube — larger + vertically offset halfway below Apple Music */
+/* 📺 YouTube button (same size as Apple Music, no offset) */
 .platform-links .platform-btn.yt-btn {
-  background: linear-gradient(135deg, #c20808, #e71a1aea, #c20808);
-  width: 100px;
-  padding: 1.2em;
+  background: linear-gradient(135deg, #fa3737,#c90808);
+  padding: 0.6em 1.2em;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: translateY(50%); /* 🔽 Shift downward by 50% of its own height */
 }
 
-
-/* 🖼️ Logo sizing */
+/* 🖼️ Logo image styling */
 .platform-links .platform-btn img {
-  height: 60px;
+  height: 35px;
   width: auto;
   display: block;
   filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-/* ✨ Hover animation */
+/* ✨ Hover effect for all buttons */
 .platform-links .platform-btn:hover {
+  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
 }
 
-/* 📱 Responsive: reset alignment on small screens */
+/* 📱 Mobile: display logos horizontally and centered */
 @media (max-width: 600px) {
   .platform-links.under-cover {
-    flex-direction: column;
+    flex-direction: row;         /* 👈 horizontal alignment */
+    justify-content: center;     /* 👈 center horizontally */
     align-items: center;
-  }
-  .platform-links .platform-btn {
-    align-self: center !important;
+    gap: 1em;
   }
 }
+
+
 
 
 
@@ -252,4 +278,32 @@
 .profile-logo {
   width: 100px; height: 100px;
   opacity: .95;
+}
+
+
+/* ==========================================================================  
+   🎵 Album Title Logo (centered above album cover)
+   ========================================================================== */
+.album-title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+
+.album-title-logo img.world-on-fire-logo {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 14px rgba(255, 70, 0, 0.75));
+}
+
+/* 📱 Mobile optimization */
+@media (max-width: 600px) {
+  .album-title-logo img.world-on-fire-logo {
+    max-width: 220px;
+  }
 }
