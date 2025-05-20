@@ -1,30 +1,37 @@
-let player;
-let isMuted = true;
+// youtubeAudio.js
 
+// YouTube player registry
+const ytPlayers = {};
+
+// Called automatically by YouTube Iframe API when ready
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('ytplayer', {
-    events: {
-      onReady: (event) => {
-        event.target.mute();
+  ['ytplayer1', 'ytplayer2'].forEach(playerId => {
+    ytPlayers[playerId] = new YT.Player(playerId, {
+      events: {
+        onReady: (event) => event.target.mute()
       }
-    }
+    });
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const audioToggleBtn = document.getElementById("audioToggleBtn");
+// Toggle mute/unmute on the appropriate player
+function toggleAudio(playerId, button) {
+  const player = ytPlayers[playerId];
+  if (!player) return;
 
-  audioToggleBtn.addEventListener("click", () => {
-    if (!player) return;
+  if (player.isMuted()) {
+    player.unMute();
+    button.textContent = 'Mute';
+  } else {
+    player.mute();
+    button.textContent = 'Unmute';
+  }
+}
 
-    if (isMuted) {
-      player.unMute();
-      audioToggleBtn.textContent = "Mute";
-      isMuted = false;
-    } else {
-      player.mute();
-      audioToggleBtn.textContent = "Unmute";
-      isMuted = true;
-    }
+// Attach event listeners after DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.audio-toggle-btn').forEach(button => {
+    const playerId = button.dataset.player;
+    button.addEventListener('click', () => toggleAudio(playerId, button));
   });
 });

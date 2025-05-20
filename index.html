@@ -4,46 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home | Caravel</title>
-  
-  <!-- Base styles and resets -->
+
+  <!-- 🔗 External Stylesheets -->
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/events.css" />
 </head>
 <body class="flex-layout">
-  <!-- Header -->
 
+  <!-- 🔼 Header -->
   <div id="header"></div>
 
   <main>
-    <section class="hero">
-      <!-- YouTube Background Video -->
-      <div class="youtube-video-wrapper fade-in">
-        <iframe
-          id="ytplayer"
-          src="https://www.youtube.com/embed/i2teMjtOcWU?autoplay=1&mute=1&loop=1&playlist=i2teMjtOcWU&controls=0&modestbranding=1&enablejsapi=1"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-          title="Caravel Background Video"
-        ></iframe>
+    <!-- 🎵 FEATURED ALBUM SECTION -->
+    <section class="album-preview-section">
+       <!-- Decorative background corner images -->
+      <img src="images/left_top.png" alt="Top Left" class="album-corner corner-top-left" />
+      <img src="images/right_top.png" alt="Top Right" class="album-corner corner-top-right" />
+      <img src="images/left_bottom.png" alt="Bottom Left" class="album-corner corner-bottom-left" />
+      <img src="images/right_bottom.png" alt="Bottom Right" class="album-corner corner-bottom-right" />
+      <div class="album-preview-header">
+        <img src="images/caravel.png" alt="Caravel Logo" class="album-logo" />
+        <h3 class="presents-text">Presents</h3>
       </div>
+      <div class="album-title-logo">
+        <img src="images/world_on_fire_home_logo.png" alt="World on Fire Logo" class="world-on-fire-logo" />
+      </div>
+      <div class="album-preview-wrapper two-column-layout">
+        <!-- Left Column -->
+        <div class="album-column">
+          <img src="images/world_on_fire.jpeg" alt="World on Fire Album Cover" class="album-preview-cover" />
+          <div class="platform-links under-cover">
+            <a href="https://music.apple.com/us/artist/caravel/1797636037" class="platform-btn apple-btn" target="_blank">
+              <img src="images/apple_music.png" alt="Apple Music" />
+            </a>
+            <a href="https://youtube.com/playlist?list=OLAK5uy_lUT-eSlTkmW0ys8Z3miiKlQdA9SdVqHug" class="platform-btn yt-btn" target="_blank">
+              <img src="images/youtube.png" alt="YouTube" />
+            </a>
+          </div>
 
-      <!-- Centered Controls -->
-      <div class="video-controls">
-        <button id="toggleVideoBtn">Hide Video</button>
-        <button id="audioToggleBtn">Unmute</button>
+          <!-- 📸 Mini Instagram Profile -->
+          <div class="mini-instagram-profile">
+            <a href="https://www.instagram.com/caravel.band/" target="_blank" class="mini-profile-link">
+              <img src="images/instagram_profile.jpg" alt="Caravel Avatar" class="mini-avatar" />
+              <div class="mini-info">
+                <p class="mini-username">@caravel.band</p>
+                <p class="mini-stats">569 followers</p>
+              </div>
+              <img src="images/instagram.png" alt="Caravel Avatar" class="mini-logo"/>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="album-column">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/album/06ahptTI1znggmuxhcMUgj?utm_source=generator"
+            width="100%" height="400" frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
       </div>
     </section>
+
+
+
+
+
+
+    <!-- 🎬 HERO SECTION -->
+    <section class="hero">
+      <div class="hero-layout">
+
+        <!-- Video Stack -->
+        <div class="video-stack">
+          <!-- Video 1 -->
+          <div class="video-block">
+            <div id="videoWrapper1" class="youtube-video-wrapper fade-in">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/i2teMjtOcWU?si=C0hrKXPnAEKb10u6"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-block">
+            <div id="videoWrapper2" class="youtube-video-wrapper fade-in">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Y5ceUG-Au_E?si=6YLIk3PK_okpGpGC"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </section>
+
+    
+
+    <!-- 📅 Next Event -->
+    <section id="nextEventContainer" class="next-event-container"></section>
   </main>
 
+  <!-- 🔽 Footer -->
   <div id="footer"></div>
 
+  <!-- 📜 Scripts -->
   <script src="js/include.js"></script>
+  <script src="js/eventsData.js"></script>
+  <script src="js/nextEvent.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="js/toggleVideo.js"></script>
   <script src="js/youtubeAudio.js"></script>
-
 </body>
 </html>

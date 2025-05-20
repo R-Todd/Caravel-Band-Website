@@ -1,0 +1,12 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "Caravel-Repo\\css\\",
+            "color": "foldercolorizer.color_ffccff"
+        },
+        {
+            "folderPath": "Caravel-Repo\\js\\",
+            "color": "foldercolorizer.color_00cc66"
+        }
+    ]
+}

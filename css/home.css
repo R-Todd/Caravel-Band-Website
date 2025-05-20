@@ -1,109 +1,406 @@
+/* home.css */
+
+/* =============================
+   HERO SECTION — Simplified Layout
+============================= */
 .hero {
   position: relative;
   width: 100vw;
-  height: 100vh;
   min-height: 100vh;
-  overflow: hidden;
+  background: url(../images/home_background.jpg) center/cover no-repeat;
+  padding: 2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  background-image: url(../images/home_background.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 1rem;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1;
+}
+
+.hero-layout {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.side-image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.side-image-column img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.video-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.video-block {
+  width: 100%;
+  max-width: 800px;
 }
 
 .youtube-video-wrapper {
   position: relative;
-  width: 80%;
-  max-width: 960px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px #000;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  z-index: 0;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .youtube-video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  border: none;
-  display: block;
-  pointer-events: none;
-  object-fit: cover;
+  border: 0;
 }
 
-/* Fade transitions */
+.video-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.video-controls button {
+  padding: 0.6em 1.2em;
+  background: #99000de1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.video-controls button:hover {
+  background: #c82333;
+}
+
 .fade-in {
   opacity: 1;
   visibility: visible;
+  transition: opacity 0.4s ease;
 }
 
 .fade-out {
   opacity: 0;
   visibility: hidden;
+  transition: opacity 0.4s ease;
 }
 
-/* Button container under video */
-.video-controls {
-  margin-top: 1rem;
+
+/* ==========================================================================  
+   🎵 FEATURED ALBUM PREVIEW (brick background + “Caravel Presents”)
+========================================================================== */
+.album-preview-section {
+  background: #111 url('../images/brick_background.png') center/cover no-repeat;
+  text-align: center;
+  padding: 4em 1.5em;
+  position: relative;
+}
+.album-preview-header {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: 1em; margin-bottom: 2em;
+}
+.album-preview-header img.album-logo {
+  max-width: 250px; height: auto;
+}
+.album-preview-header .presents-text {
+  color: #fff;
+  font-size: 2.5em;
+  margin: 0;
+}
+@media (max-width:600px) {
+  .album-preview-header { flex-direction: column; }
+  .album-preview-header .presents-text { font-size: 2em; }
+}
+.album-preview-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+}
+.album-preview-cover {
+  width: 300px; max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  margin-bottom: 1em;
+}
+.album-preview-title {
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+}
+.album-preview-title span {
+  color: #ff6f00;
+}
+
+/* ==========================================================================  
+   🎧 TWO-COLUMN LAYOUT & EMBEDS — Centered + Equal Buttons Below Album
+========================================================================== */
+.two-column-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  justify-content: center;
+}
+.album-column {
+  flex: 1 1 300px;
+  max-width: 500px;
+  text-align: center;
+  padding: .51em;
+}
+.spotify-embed {
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  margin-top: 1em;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔗 Platform buttons */
+.platform-links.under-cover {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  z-index: 2;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 1.5em;
   flex-wrap: wrap;
 }
-
-/* Button styles */
-.video-controls button {
+.platform-links .platform-btn.apple-btn {
+  background: linear-gradient(135deg, #f08ab1, #be19e7);
   padding: 0.6em 1.2em;
-  background-color: #99000de1; /* Caravel red */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.video-controls button:hover {
-  background-color: #c82333;
+.platform-links .platform-btn.yt-btn {
+  background: linear-gradient(135deg, #fa3737,#c90808);
+  padding: 0.6em 1.2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-/* 📱 Mobile Layout */
+.platform-links .platform-btn img {
+  height: 35px;
+  width: auto;
+  display: block;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+.platform-links .platform-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
 @media (max-width: 600px) {
-  .hero {
-    padding: 1rem;
-    height: auto;
-  }
-
-  .youtube-video-wrapper {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-  }
-
-  .video-controls {
-    flex-direction: column;
+  .platform-links.under-cover {
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 300px;
-    margin-top: 1rem;
-  }
-
-  .video-controls button {
-    width: 100%;
-    font-size: 1rem;
+    gap: 1em;
   }
 }
+
+/* ==========================================================================  
+   📸 INSTAGRAM PROFILE CARD
+========================================================================== */
+.instagram-profile-card {
+  background: #111;
+  padding: 3em 1em;
+  text-align: center;
+}
+.profile-link {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  max-width: 550px; margin: auto;
+  padding: 1.5em;
+  background: #1a1a1a;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  text-decoration: none;
+  gap: 1.5em;
+  transition: background .3s ease, box-shadow .3s ease;
+}
+.profile-link:hover {
+  background: #222;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+.profile-avatar {
+  width: 175px; height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+.profile-info {
+  flex-grow: 1;
+  text-align: left;
+}
+.username {
+  font-size: 1.5em;
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+}
+.name {
+  font-size: 1em;
+  color: #ccc;
+  margin: .1em 0;
+}
+.stats {
+  font-size: .9em;
+  color: #aaa;
+  margin: .2em 0 0;
+}
+.profile-logo {
+  width: 100px;
+  height: 100px;
+  opacity: .95;
+}
+
+/* 📸 Mini Instagram Profile (inline version under platform links) */
+.mini-instagram-profile {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mini-profile-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8em 1em;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-profile-link:hover {
+  background: #222;
+}
+
+.mini-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #444;
+}
+
+.mini-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.mini-username {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.mini-stats {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 0.2em 0 0;
+}
+
+.mini-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  margin-left: auto;
+}
+
+
+
+
+/* ==========================================================================  
+   🎵 Album Title Logo (centered above album cover)
+========================================================================== */
+.album-title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+.album-title-logo img.world-on-fire-logo {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 14px rgba(255, 70, 0, 0.75));
+}
+@media (max-width: 600px) {
+  .album-title-logo img.world-on-fire-logo {
+    max-width: 220px;
+  }
+}
+
+/* 🎨 Decorative corner images inside album-preview-section */
+.album-preview-section {
+  position: relative; /* already set – good */
+  overflow: hidden;   /* ensures image corners don’t spill out */
+}
+
+.album-corner {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  opacity: 0.75;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 14px rgba(0, 0, 0, 0.5));
+}
+
+/* Corner placements */
+.corner-top-left {
+  top: 59vh;
+  left: 180vh;
+}
+
+.corner-top-right {
+  top: 49vh;
+  right: 33vh;
+}
+
+.corner-bottom-left {
+  bottom: 23vh;
+  left: 165vh;
+}
+
+.corner-bottom-right {
+  width: 100px;
+  bottom: 10vh;
+  right: 17vh;
+}
+

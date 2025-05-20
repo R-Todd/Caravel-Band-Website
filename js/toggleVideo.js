@@ -1,23 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.getElementById("toggleVideoBtn");
-  const videoWrapper = document.querySelector(".youtube-video-wrapper");
+// toggleVideo.js
 
-  // Hide on mobile by default
-  if (window.innerWidth <= 600) {
-    videoWrapper.classList.remove("fade-in");
-    videoWrapper.classList.add("fade-out");
-    toggleBtn.textContent = "Show Video";
-  }
+// Toggle visibility (fade-in/out) of a video wrapper
+function toggleVisibility(wrapperId, button) {
+  const wrapper = document.getElementById(wrapperId);
+  if (!wrapper) return;
 
-  toggleBtn.addEventListener("click", function () {
-    if (videoWrapper.classList.contains("fade-in")) {
-      videoWrapper.classList.remove("fade-in");
-      videoWrapper.classList.add("fade-out");
-      toggleBtn.textContent = "Show Video";
-    } else {
-      videoWrapper.classList.remove("fade-out");
-      videoWrapper.classList.add("fade-in");
-      toggleBtn.textContent = "Hide Video";
-    }
+  const isVisible = wrapper.classList.contains('fade-in');
+  wrapper.classList.toggle('fade-in', !isVisible);
+  wrapper.classList.toggle('fade-out', isVisible);
+  button.textContent = isVisible ? 'Show Video' : 'Hide Video';
+}
+
+// Wait until the DOM is ready to attach button listeners
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.toggle-video-btn').forEach(button => {
+    const wrapperId = button.dataset.wrapper;
+    button.addEventListener('click', () => toggleVisibility(wrapperId, button));
   });
 });
