@@ -20,11 +20,6 @@
   <main>
     <!-- 🎵 FEATURED ALBUM SECTION -->
     <section class="album-preview-section">
-       <!-- Decorative background corner images -->
-      <img src="images/left_top.png" alt="Top Left" class="album-corner corner-top-left" />
-      <img src="images/right_top.png" alt="Top Right" class="album-corner corner-top-right" />
-      <img src="images/left_bottom.png" alt="Bottom Left" class="album-corner corner-bottom-left" />
-      <img src="images/right_bottom.png" alt="Bottom Right" class="album-corner corner-bottom-right" />
       <div class="album-preview-header">
         <img src="images/caravel.png" alt="Caravel Logo" class="album-logo" />
         <h3 class="presents-text">Presents</h3>
@@ -67,8 +62,15 @@
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy">
           </iframe>
+
+          <!-- 🎨 Horizontal Images Under Spotify -->
+          <div class="album-image-row">
+            <img src="images/frame_1.png" alt="Album Detail 1" />
+            <img src="images/frame_2.png" alt="Album Detail 2" />
+            <img src="images/frame_3.png" alt="Album Detail 3"/>
+          </div>
         </div>
-      </div>
+
     </section>
 
 
@@ -87,7 +89,7 @@
             <div id="videoWrapper1" class="youtube-video-wrapper fade-in">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/i2teMjtOcWU?si=C0hrKXPnAEKb10u6"
                 title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen></iframe>
             </div>
@@ -98,7 +100,7 @@
             <div id="videoWrapper2" class="youtube-video-wrapper fade-in">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/Y5ceUG-Au_E?si=6YLIk3PK_okpGpGC"
                 title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
@@ -122,7 +124,5 @@
   <script src="js/eventsData.js"></script>
   <script src="js/nextEvent.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="js/toggleVideo.js"></script>
-  <script src="js/youtubeAudio.js"></script>
 </body>
 </html>
