@@ -91,7 +91,6 @@
   display: inline-block;
 }
 
-
 .video-section-title h2 {
   font-size: 2rem;
   background: linear-gradient(to right, #ff4d4d, #ffcc70);
@@ -106,7 +105,6 @@
   justify-content: center;
 }
 
-
 .video-subtitle {
   font-size: 1rem;
   color: #bbbbbb;
@@ -114,22 +112,18 @@
   letter-spacing: 0.5px;
 }
 
-/* 📱 Mobile responsive */
 @media (max-width: 768px) {
   .video-section-title h2 {
     font-size: 2rem;
   }
-
   .video-subtitle {
     font-size: 0.8rem;
   }
-
   .video-title-icon {
     width: 24px;
     height: 24px;
   }
 }
-
 
 /* ===================================== 3. ALBUM PREVIEW SECTION ===================================== */
 .album-preview-section {
@@ -338,23 +332,10 @@
   flex: 0 0 auto;                  /* Prevent flex from shrinking images */
 }
 
-/* Organic sizing and rotation */
-.album-image-row img:nth-child(1) {
-  max-width: 100px;
-  transform: rotate(-4deg);
-}
-.album-image-row img:nth-child(2) {
-  max-width: 120px;
-  transform: rotate(2.5deg);
-}
-.album-image-row img:nth-child(3) {
-  max-width: 90px;
-  transform: rotate(-6deg);
-}
-.album-image-row img:nth-child(4) {
-  max-width: 110px;
-  transform: rotate(3.5deg);
-}
+.album-image-row img:nth-child(1) { max-width: 100px; transform: rotate(-4deg); }
+.album-image-row img:nth-child(2) { max-width: 120px; transform: rotate(2.5deg); }
+.album-image-row img:nth-child(3) { max-width: 90px;  transform: rotate(-6deg); }
+.album-image-row img:nth-child(4) { max-width: 110px; transform: rotate(3.5deg); }
 
 .album-image-row img:hover {
   transform: scale(1.07);
@@ -362,61 +343,89 @@
   box-shadow: 0 0 16px rgba(255, 255, 255, 0.2);
 }
 
-
-
-
-
-
-
-
 /* ===================================== 8. RESPONSIVE STYLES ===================================== */
 @media (max-width: 768px) {
   .hero-layout {
     flex-direction: column;
   }
-
   .side-image-column {
     flex-direction: row;
     gap: 0.5rem;
     justify-content: center;
   }
-
   .side-image-column img {
     width: 80px;
   }
-
   .video-block {
     max-width: 95vw;
   }
-
   .album-preview-header {
     flex-direction: column;
     gap: 0.5rem;
   }
-
   .album-preview-cover {
     width: 80%;
   }
-
   .album-title-logo img.world-on-fire-logo {
     max-width: 220px;
   }
-
   .album-corner {
     width: 60px;
     opacity: 0.6;
   }
-
   .two-column-layout {
     flex-direction: column;
     align-items: center;
   }
-
   .album-column {
     max-width: 95vw;
   }
-
   .platform-links.under-cover {
     gap: 1em;
   }
+}
+
+/* ===================================== NEXT EVENT SECTION ===================================== */
+.next-event-section {                                                    /* CHANGED */
+  width: 100%;                                                           /* CHANGED */
+  background: url('../images/events/event_background_home.jpg') no-repeat center center; /* CHANGED */
+  background-size: cover;                                                /* CHANGED */
+  position: relative;                                                    /* CHANGED */
+  padding: 3em 1.5em;                                                    /* CHANGED */
+}
+
+.next-event-section::before {                                            /* CHANGED */
+  content: '';                                                           /* CHANGED */
+  position: absolute;                                                    /* CHANGED */
+  inset: 0;                                                              /* CHANGED */
+  background: rgba(0, 0, 0, 0.6);                                        /* CHANGED */
+  z-index: 1;                                                            /* CHANGED */
+}
+
+.next-event-section .next-event-card {                                   /* CHANGED */
+  position: relative;                                                    /* CHANGED */
+  z-index: 2;                                                            /* CHANGED */
+  max-width: 700px;                                                      /* CHANGED */
+  margin: 0 auto;                                                        /* CHANGED */
+  background-color: rgba(17, 17, 17, 0.7);                               /* CHANGED */
+  border-radius: 8px;                                                    /* CHANGED */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);                              /* CHANGED */
+  overflow: hidden;                                                      /* CHANGED */
+  color: #f0f0f0;                                                        /* CHANGED */
+}
+
+.next-event-section .next-event-card .event-flyer {                      /* CHANGED */
+  width: 100%;                                                           /* CHANGED */
+  display: block;                                                        /* CHANGED */
+  opacity: 0.95;                                                         /* CHANGED */
+}
+
+.next-event-section .next-event-card .event-details {                    /* CHANGED */
+  padding: 1.5em;                                                        /* CHANGED */
+  text-align: left;                                                      /* CHANGED */
+}
+
+.next-event-section .next-event-card .event-details h3 {                 /* CHANGED */
+  margin-top: 0;                                                         /* CHANGED */
+  color: #ffcc70;                                                        /* CHANGED */
 }

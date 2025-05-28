@@ -54,6 +54,14 @@ const eventsData = [
       time: "8:00 PM",
       location: "Monte Vista Hotel, Flagstaff, AZ",
       image: "images/events/a_night_of_psychedelic_rock_flyer5-9-25.png"
+    },
+    {
+      title: "Caravel With The Verde Valley Vagabonds",
+      description: "Sedona red dirt concert series 5-8pm",
+      date: "2025-05-30",
+      time: "5:00 PM",
+      location: "Posse Grounds Pavilion 525, Posse Grounds Rd, Sedona, AZ",
+      image: "images/events/verde_valley_5-30.png"
     }
   ];
   
