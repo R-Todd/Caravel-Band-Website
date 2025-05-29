@@ -1,39 +1,57 @@
-// js/slider.js
-document.addEventListener("DOMContentLoaded", () => {
-  const inner   = document.querySelector(".carousel-inner");
-  const slides  = document.querySelectorAll(".carousel-inner .slide");
-  const prevBtn = document.querySelector(".carousel-control.prev");
-  const nextBtn = document.querySelector(".carousel-control.next");
-  let   current = 0;
-  const total   = slides.length;
-  let   timer   = setInterval(nextSlide, 5000);
+// slider.js
 
-  function update() {
-    inner.style.transform = `translateX(-${current * 100}%)`;
+document.addEventListener('DOMContentLoaded', () => {
+  // Grab elements
+  const carousel       = document.querySelector('.carousel');
+  const carouselInner  = carousel.querySelector('.carousel-inner');
+  const slides         = Array.from(carouselInner.children);
+  const prevButton     = carousel.querySelector('.carousel-control.prev');
+  const nextButton     = carousel.querySelector('.carousel-control.next');
+
+  // State & settings
+  let currentIndex     = 0;
+  const slideCount     = slides.length;
+  const intervalTime   = 8000; // ms between auto-rotations
+  let slideInterval;
+
+  // Shift carouselInner to show the current slide
+  function updateSlide() {
+    carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
 
+  // Advance to next slide (with wrap)
   function nextSlide() {
-    current = (current + 1) % total;
-    update();
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlide();
   }
 
+  // Go back to previous slide (with wrap)
   function prevSlide() {
-    current = (current - 1 + total) % total;
-    update();
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    updateSlide();
   }
 
-  nextBtn.addEventListener("click", () => {
-    nextSlide();
-    resetTimer();
-  });
+  // Clear and restart the auto-rotate timer
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, intervalTime);
+  }
 
-  prevBtn.addEventListener("click", () => {
+  // Button handlers
+  prevButton.addEventListener('click', () => {
     prevSlide();
-    resetTimer();
+    resetInterval();
   });
 
-  function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(nextSlide, 5000);
-  }
+  nextButton.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  // Auto-rotate start
+  slideInterval = setInterval(nextSlide, intervalTime);
+
+  // Optional: pause on hover, resume on leave
+  carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+  carousel.addEventListener('mouseleave', resetInterval);
 });

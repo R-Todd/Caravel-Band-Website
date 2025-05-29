@@ -1,3 +1,40 @@
+/* ===================================== SLIDER (Carousel) Base Styles ===================================== */
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 0.5em;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control.prev {
+  left: 1rem;
+}
+
+.carousel-control.next {
+  right: 1rem;
+}
+
 /* ===================================== 1. HERO SECTION ===================================== */
 .hero {
   position: relative;
@@ -60,7 +97,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  aspect-ratio: 16 / 9; /* ✅ Modern method for consistent height */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -309,19 +346,19 @@
 /* ===================================== 9. IMAGE ROW UNDER SPOTIFY ===================================== */
 .album-image-row {
   display: flex;
-  flex-wrap: nowrap;                /* Prevent wrapping */
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 2rem;                        /* Space between images */
+  gap: 2rem;
   margin-top: 2rem;
   padding: 0 1rem;
-  overflow-x: auto;                /* Enable horizontal scroll */
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;           /* Firefox: hide scrollbar */
+  scrollbar-width: none;
 }
 
 .album-image-row::-webkit-scrollbar {
-  display: none;                   /* Chrome/Safari: hide scrollbar */
+  display: none;
 }
 
 .album-image-row img {
@@ -329,7 +366,7 @@
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex: 0 0 auto;                  /* Prevent flex from shrinking images */
+  flex: 0 0 auto;
 }
 
 .album-image-row img:nth-child(1) { max-width: 100px; transform: rotate(-4deg); }
@@ -386,46 +423,112 @@
 }
 
 /* ===================================== NEXT EVENT SECTION ===================================== */
-.next-event-section {                                                    /* CHANGED */
-  width: 100%;                                                           /* CHANGED */
-  background: url('../images/events/event_background_home.jpg') no-repeat center center; /* CHANGED */
-  background-size: cover;                                                /* CHANGED */
-  position: relative;                                                    /* CHANGED */
-  padding: 3em 1.5em;                                                    /* CHANGED */
+.next-event-section {
+  width: 100%;
+  background: url('../images/events/event_background_home.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 3em 1.5em;
 }
 
-.next-event-section::before {                                            /* CHANGED */
-  content: '';                                                           /* CHANGED */
-  position: absolute;                                                    /* CHANGED */
-  inset: 0;                                                              /* CHANGED */
-  background: rgba(0, 0, 0, 0.6);                                        /* CHANGED */
-  z-index: 1;                                                            /* CHANGED */
+.next-event-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
-.next-event-section .next-event-card {                                   /* CHANGED */
-  position: relative;                                                    /* CHANGED */
-  z-index: 2;                                                            /* CHANGED */
-  max-width: 700px;                                                      /* CHANGED */
-  margin: 0 auto;                                                        /* CHANGED */
-  background-color: rgba(17, 17, 17, 0.7);                               /* CHANGED */
-  border-radius: 8px;                                                    /* CHANGED */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);                              /* CHANGED */
-  overflow: hidden;                                                      /* CHANGED */
-  color: #f0f0f0;                                                        /* CHANGED */
+.next-event-section .next-event-card {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: rgba(17, 17, 17, 0.7);
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  color: #f0f0f0;
 }
 
-.next-event-section .next-event-card .event-flyer {                      /* CHANGED */
-  width: 100%;                                                           /* CHANGED */
-  display: block;                                                        /* CHANGED */
-  opacity: 0.95;                                                         /* CHANGED */
+.next-event-section .next-event-card .event-flyer {
+  width: 100%;
+  display: block;
+  opacity: 0.95;
 }
 
-.next-event-section .next-event-card .event-details {                    /* CHANGED */
-  padding: 1.5em;                                                        /* CHANGED */
-  text-align: left;                                                      /* CHANGED */
+.next-event-section .next-event-card .event-details {
+  padding: 1.5em;
+  text-align: left;
 }
 
-.next-event-section .next-event-card .event-details h3 {                 /* CHANGED */
-  margin-top: 0;                                                         /* CHANGED */
-  color: #ffcc70;                                                        /* CHANGED */
+.next-event-section .next-event-card .event-details h3 {
+  margin-top: 0;
+  color: #ffcc70;
 }
+
+/* ===================================== MOBILE SLIDER TWEAKS ===================================== */
+@media (max-width: 768px) {
+  /* — Video Slide — */
+  /* ensure the layout flows column-wise: title, then videos */
+  .hero .hero-layout {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 0;
+  }
+  .video-section-title {
+    order: -1;               /* puts title before the videos */
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .video-stack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .video-block {
+    max-width: 100vw;
+    margin: 0 auto;
+  }
+
+  /* — Event Slide — */
+  /* reduce top/bottom padding, let the card fill nearly the whole screen */
+  .next-event-section {
+    padding: 2rem 1rem;
+    background-position: center top;
+  }
+  .next-event-section .next-event-card {
+    max-width: 95vw;
+    
+  }
+  /* optionally clamp flyer height so details remain visible */
+  .next-event-section .next-event-card .event-flyer {
+    width: 100%;
+    max-height: 50vh;
+    object-fit: cover;
+  }
+}
+
+/* ===================================== FIXED ARROW CONTROLS ===================================== */
+.carousel-control {
+  /* change from absolute to fixed */
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;          /* ensure they sit above everything */
+}
+
+.carousel-control.prev {
+  left: 1rem;             /* distance from left edge of viewport */
+}
+
+.carousel-control.next {
+  right: 1rem;            /* distance from right edge of viewport */
+}
+
+
+
+
+
